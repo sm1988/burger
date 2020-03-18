@@ -20,16 +20,15 @@ function printQuestionMarks(num) {
       var value = ob[key];
       // check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (cheese burger=> 'cheese burger')
+        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'";
+          value = "'" + value + "'";
         }
-        // e.g. {burger_name: 'cheese burger'} => ["name='cheese burger'"]
+        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+        // e.g. {sleepy: true} => ["sleepy=true"]
         arr.push(key + "=" + value);
       }
     }
-    console.log(arr);
-
     // translate array of strings to a single comma-separated string
     return arr.toString();
   }
